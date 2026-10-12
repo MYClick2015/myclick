@@ -1,8 +1,13 @@
-
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+MAINTENANCE_MODE = True  # Skift til False når du vil vise den rigtige side
+
+@app.before_request
+def check_maintenance():
+    if MAINTENANCE_MODE and request.path != '/admin':
+        return render_template('maintenance.html')
 
 @app.route("/")
 def home():
