@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sådan bygger jeg - MYClick</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<!-- Syntax highlight - lille og pæn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="/">MYClick</a>
+  <nav>
+    <a href="/">Forside</a>
+    <a href="/quotes">Quotes</a>
+    <a href="/python">Python</a>
+  </nav>
+</header>
+
+<section class="hero" style="padding-bottom: 60px;">
+  <p class="eyebrow">Bag kulissen</p>
+  <h1>Sådan bygger jeg min hjemmeside.</h1>
+  <p>Fra gammel PHP i 2001 til Flask i 2026. Her er koden jeg bruger.</p>
+</section>
+
+<section class="content-section">
+
+  <div class="step">
+    <h3>1. Serveren - app.py</h3>
+    <p>Det her er dørmanden. Den gamle <code>index.php?page=</code> fra dengang.</p>
+    <div class="code-block">
+<pre><code class="language-python">from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/quotes')
+def quotes():
+    return render_template('quotes.html')
+
+@app.route('/python')
+def python_page():
+    return render_template('python.html')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
+</code></pre>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3>2. HTML - skelettet</h3>
+    <p>Hver side ligger i <code>templates/</code> mappen.</p>
+    <div class="code-block">
+<pre><code class="language-html">&lt;link rel="stylesheet"
+  href="{{ "{{ url_for('static', filename='css/style.css') }}" }}"&gt;
+
+&lt;header class="site-header"&gt;
+  &lt;nav&gt;
+    &lt;a href="/"&gt;Forside&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+</code></pre>
+    </div>
+  </div>
+
+  <div class="step">
+    <h3>3. CSS variabler</h3>
+    <p>Farverne ét sted, så hele sitet skifter.</p>
+    <div class="code-block">
+<pre><code class="language-css">:root {
+  --background: #f8f5ef;
+  --accent: #9b7947;
+}
+body {
+  background: var(--background);
+}
+</code></pre>
+    </div>
+  </div>
+
+  <a class="link" href="/">← Tilbage til forsiden</a>
+</section>
+
+<footer>© 2026 — By MYClick</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

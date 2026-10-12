@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Min personlige hjemmeside.">
+    <title>MY-HOMEPAGE 2026</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="/">Min hjemmeside</a>
+
+        <nav aria-label="Hovedmenu">
+            <a href="/">Forside</a>
+            <a href="/quotes">Mine Quotes</a>
+            <a href="/python">Python Script</a>
+            <a href="#galleri">Galleri</a>
+            <a href="#om">Om mig</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <p class="eyebrow">Velkommen</p>
+            <h1>Min egen digitale verden.</h1>
+            <p>Fotografi, videoer, historier og viden samlet ét sted.</p>
+            <a class="link" href="#galleri">Udforsk hjemmesiden →</a>
+        </section>
+
+        <section id="galleri" class="content-section">
+            <h2>Mit galleri</h2>
+            <p>Her bygger vi senere et rigtigt fotogalleri.</p>
+        </section>
+
+        <section id="om" class="content-section">
+            <h2>Om hjemmesiden</h2>
+            <p>En enkel hjemmeside, bygget med kode, jeg selv kontrollerer.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Min hjemmeside · Bygget med Python og HTML</p>
+    </footer>
+</body>
+</html>
