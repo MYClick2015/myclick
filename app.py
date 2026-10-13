@@ -2,20 +2,14 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# True = maintenance page
-# False = normal website
 MAINTENANCE_MODE = True
 
 @app.before_request
 def check_maintenance():
     if MAINTENANCE_MODE:
-        # 1. TILLAD ALTID static filer - ellers får du 404!
+        # Tillad static filer (ellers virker billeder ikke!)
         if request.path.startswith('/static/'):
             return None
-        # 2. Tillad også selve static endpointet
-        if request.endpoint == 'static':
-            return None
-        # 3. Alt andet = vis maintenance
         return render_template("maintenance.html"), 503
 
 @app.route("/")
