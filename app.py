@@ -6,8 +6,12 @@ MAINTENANCE_MODE = True  # Skift til False når du vil vise den rigtige side
 
 @app.before_request
 def check_maintenance():
-    if MAINTENANCE_MODE and request.path != '/admin':
-        return render_template('maintenance.html')
+    # Tillad altid static filer, selv i maintenance mode
+    if request.path.startswith('/static/'):
+        return None
+    if MAINTENANCE_MODE and request.path != '/':
+        # valgfrit - lad kun forsiden vise maintenance
+        pass
 
 @app.route("/")
 def home():
