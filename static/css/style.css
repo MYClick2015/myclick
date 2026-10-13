@@ -164,13 +164,13 @@ pre { margin: 0 !important; background: var(--surface) !important; }
 }
 
 .maintenance-bubble {
-    max-width: 420px;
-    width: 90%;
+    max-width: 360px;  /* var 420px - for stor */
+    max-height: 80vh;  /* NY - så den aldrig fylder hele siden */
+    width: auto;
     height: auto;
+    object-fit: contain;
     display: block;
-    /* Ingen box-shadow - skyggen er i PNG'en! */
-    /* Ingen border-radius - billedet er transparent! */
-    animation:
+    animation: 
         floatIn 1.4s cubic-bezier(0.22,1,0.36,1),
         float 3.5s ease-in-out infinite 1.4s;
 }
