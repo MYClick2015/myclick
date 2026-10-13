@@ -153,33 +153,3 @@ footer {
 pre { margin: 0 !important; background: var(--surface) !important; }
 .step { margin-top: 60px; }
 .step h3 { font-family: Georgia, serif; font-weight: 400; font-size: 1.5rem; }
-/* --- MYCLICK Maintenance Splash --- */
-.maintenance-wrap {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-    background: var(--background);
-}
-
-.maintenance-bubble {
-    max-width: 360px;  /* var 420px - for stor */
-    max-height: 80vh;  /* NY - så den aldrig fylder hele siden */
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    animation: 
-        floatIn 1.4s cubic-bezier(0.22,1,0.36,1),
-        float 3.5s ease-in-out infinite 1.4s;
-}
-
-@keyframes floatIn {
-    0% { opacity:0; transform: translateY(60px) scale(0.85); filter: blur(8px); }
-    100% { opacity:1; transform: translateY(0) scale(1); filter: blur(0); }
-}
-@keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
