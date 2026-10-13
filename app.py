@@ -1,27 +1,6 @@
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
-import os
-
-@app.route("/debug-static")
-def debug_static():
-    path = os.path.join(app.static_folder, "images", "myclick-splash-final.webp")
-    exists = os.path.exists(path)
-    files = []
-    try:
-        files = os.listdir(os.path.join(app.static_folder, "images"))
-    except Exception as e:
-        files = [f"FEJL: {e}"]
-
-    return f"""
-    <h1>Debug Static</h1>
-    <p>Static folder: {app.static_folder}</p>
-    <p>Looking for: {path}</p>
-    <p>Exists: {exists}</p>
-    <p>Files in static/images: {files}</p>
-    <p>Current dir: {os.getcwd()}</p>
-    <p>List root: {os.listdir('.')}</p>
-    """
 
 # True = maintenance page
 # False = normal website
